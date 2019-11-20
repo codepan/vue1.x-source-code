@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./watcher.js"></script>
+  <script src="./compiler.js"></script>
+  <script src="./observer.js"></script>
+  <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <p>名字为：{{fullname}}</p>
+      <p>城市为：{{city}}</p>
+      <p>年龄为：{{user.age}}</p>
+      <button v-on:click="changeCity"></button>
+    </div>
+  <div>
+  </div>
+</body>
+
+<script>
+const vm = new Vue({
+  el: '#app',
+  data: {
+    firstName: '张',
+    lastName: '三',
+    city: '陕西',
+    user: {
+      age: 20
+    }
+  },
+  computed: {
+    fullname () {
+      return this.firstName + this.lastName
+    }
+  },
+  methods: {
+    changeCity () {
+      this.city = '北京'
+    }
+  }
+})
+</script>
+</html>
